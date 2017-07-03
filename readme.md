@@ -2,7 +2,7 @@
 
 A tiny web service for devices that cannot themselves handle HTTPS connections for some reason.
 
-The service has a whitelist of HTTPS targets that it will accept to proxy to, and you use it by concatenating the target address with the address of this service.
+The service has a whitelist of HTTPS targets that it will accept to proxy for, and you use it by concatenating the target address with the address of this service.
 
 For instance, if the service is running on `proxy.openmono.com` and you want to get a random number from
 
