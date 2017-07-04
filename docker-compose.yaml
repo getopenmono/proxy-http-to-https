@@ -1,0 +1,8 @@
+version: "2"
+
+services:
+  proxy:
+    image: monolit/proxy-http-to-https
+    ports:
+      - "9000:3000"
+    restart: always
