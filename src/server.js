@@ -8,16 +8,23 @@ const proxy = httpProxy.createProxyServer({
   agent: https.globalAgent
 })
 
+const targetHostWhitelist = [
+  'www.random.org'
+]
+
 const server = http.createServer((req, res) => {
   const targetHost = req.headers['x-host-target']
-  console.log(`Target host: ${targetHost}`)
-  // TODO: sanity check targetHost.
-  proxy.web(req, res, {
-    target: `https://${targetHost}`,
-    headers: {
-      host: targetHost
-    }
-  })
+  if (targetHost && targetHostWhitelist.includes(targetHost)) {
+    return proxy.web(req, res, {
+      target: `https://${targetHost}`,
+      headers: {
+        host: targetHost
+      }
+    })
+  }
+  res.statusCode = 200
+  res.setHeader('Content-Type', 'application/json')
+  res.end(JSON.stringify(targetHostWhitelist))
 })
 
 server.listen(3000)

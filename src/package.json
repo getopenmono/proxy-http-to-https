@@ -6,7 +6,6 @@
   "scripts": {
     "standardjs": "standard",
     "jslint": "nsrun standardjs",
-    "unittest": "mocha --colors --spec list *_test.js",
     "test": "nsrun standardjs",
     "start": "node server.js"
   },
@@ -21,15 +20,10 @@
   },
   "homepage": "https://github.com/getopenmono/proxy-http-to-https#readme",
   "devDependencies": {
-    "chai": "^4.0.2",
-    "mocha": "^3.4.2",
     "nsrun": "^1.1.2",
-    "standard": "^10.0.2",
-    "supertest": "^3.0.0"
+    "standard": "^10.0.2"
   },
   "dependencies": {
-    "express": "^4.15.3",
-    "http-proxy": "^1.16.2",
-    "lodash": "^4.17.4"
+    "http-proxy": "^1.16.2"
   }
 }

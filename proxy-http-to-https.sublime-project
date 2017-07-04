@@ -1,13 +1,13 @@
 { "build_systems":
   [ { "file_regex": "^([^\n:]+):([0-9]+):([0-9]+): (.*)$"
     , "name": "Proxy"
-    , "cmd": ["npm","test"]
+    , "cmd": ["npm","test","--silent"]
     , "working_dir": "${project_path}/src"
     , "target": "ansi_color_build"
     , "syntax": "Packages/ANSIescape/ANSI.tmLanguage"
     , "variants":
       [ { "name": "jslint"
-        , "cmd": ["npm","run","jslint"]
+        , "cmd": ["npm","run","jslint","--silent"]
         , "working_dir": "${project_path}/src"
         , "file_regex": "^  ([^\n:]+):([0-9]+):([0-9]+): (.*)$"
         }
