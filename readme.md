@@ -14,6 +14,6 @@ you can use the proxy by providing a custom header `X-Target-Host`:
     Host: proxy.openmono.com
     X-Target-Host: www.random.org
 
-To see the whitelist, use
+To see the whitelist, simply use
 
-    http://proxy.openmono.com/v1/whitelist
+    http://proxy.openmono.com/
