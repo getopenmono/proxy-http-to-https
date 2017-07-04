@@ -8,9 +8,11 @@ For instance, if the service is running on `proxy.openmono.com` and you want to 
 
     https://www.random.org/integers/?num=1&min=1&max=10000000&col=5&base=10&format=plain
 
-you can use the proxy thusly
+you can use the proxy by providing a custom header `X-Target-Host`:
 
-    http://www.random.org.proxy.openmono.com/integers/?num=1&min=1&max=10000000&col=5&base=10&format=plain
+    GET /integers/?num=1&min=1&max=10000000&col=5&base=10&format=plain HTTP/1.1
+    Host: proxy.openmono.com
+    X-Target-Host: www.random.org
 
 To see the whitelist, use
 

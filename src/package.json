@@ -6,7 +6,7 @@
   "scripts": {
     "standardjs": "standard",
     "jslint": "nsrun standardjs",
-    "unittest": "mocha --colors --spec list test_*.js",
+    "unittest": "mocha --colors --spec list *_test.js",
     "test": "nsrun standardjs",
     "start": "node server.js"
   },
