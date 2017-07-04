@@ -7,7 +7,7 @@
     "standardjs": "standard",
     "jslint": "nsrun standardjs",
     "unittest": "mocha --colors --spec list test_*.js",
-    "test": "nsrun standardjs && nsrun unittest",
+    "test": "nsrun standardjs",
     "start": "node server.js"
   },
   "repository": {

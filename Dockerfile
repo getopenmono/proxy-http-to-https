@@ -2,34 +2,39 @@
 ## Base
 ##
 FROM node:alpine AS base
-# RUN addgroup -S app && adduser -S -g app app
 RUN apk add --no-cache nodejs-current tini
 WORKDIR $HOME/proxy
 ENTRYPOINT ["/sbin/tini", "--"]
-COPY src/package.json src/package-lock.json ./
+
+##
+##
+##
+FROM base AS production-dependencies
+COPY src/package.json ./
+RUN npm set progress=false && \
+    npm config set depth 0 && \
+    npm install --only=production
 
 ##
 ## Dependencies
 ##
-FROM base AS dependencies
+FROM production-dependencies AS test-dependencies
+RUN apk add --no-cache python make g++
 RUN npm set progress=false && \
     npm config set depth 0 && \
-    npm install --only=production && \
-    cp -R node_modules prod_node_modules && \
 	npm install
 
 ##
 ## Test
 ##
-FROM dependencies AS test
+FROM test-dependencies AS test
 COPY src/* ./
 RUN npm test
 
 ##
 ## Release
 ##
-FROM base AS release
-COPY --from=dependencies $HOME/proxy/prod_node_modules ./node_modules
+FROM production-dependencies AS release
 COPY src/* ./
 EXPOSE 3000
-CMD npm start
+CMD ["npm", "start"]
