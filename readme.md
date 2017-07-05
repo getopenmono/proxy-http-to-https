@@ -20,4 +20,4 @@ To see the whitelist, simply use
 
 ----
 
-[![Docker build status](https://img.shields.io/docker/build/monolit/proxy-http-to-https.svg)]()
+[![Docker build status](https://img.shields.io/docker/build/monolit/proxy-http-to-https.svg)](https://hub.docker.com/r/monolit/proxy-http-to-https/builds/)
