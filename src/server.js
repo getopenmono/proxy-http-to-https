@@ -9,7 +9,9 @@ const proxy = httpProxy.createProxyServer({
 })
 
 const targetHostWhitelist = [
-  'www.random.org'
+  'www.random.org',
+  'api.twitter.com',
+  'api.pushover.net'
 ]
 
 const server = http.createServer((req, res) => {
