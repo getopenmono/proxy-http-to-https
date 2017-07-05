@@ -17,3 +17,7 @@ you can use the proxy by providing a custom header `X-Target-Host`:
 To see the whitelist, simply use
 
     http://proxy.openmono.com/
+
+----
+
+[![Docker build status](https://img.shields.io/docker/build/monolit/proxy-http-to-https.svg)]()
